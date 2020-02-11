@@ -1,0 +1,29 @@
+{
+  "vgAbbeyApp": {
+    "videogame": {
+      "home": {
+        "title": "Videogames",
+        "createLabel": "Videogame を追加",
+        "createOrEditLabel": "Videogameを追加または編集",
+        "notFound": "No Videogames found"
+      },
+      "created": "A new Videogame is created with identifier {{ param }}",
+      "updated": "A Videogame is updated with identifier {{ param }}",
+      "deleted": "A Videogame is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Videogame {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Videogame"
+      },
+      "title": "Title",
+      "description": "Description",
+      "imageUrl": "Image Url",
+      "repositoryUrl": "Repository Url",
+      "deployUrl": "Deploy Url",
+      "releaseDate": "Release Date",
+      "isSearchingCollab": "Is Searching Collab",
+      "developers": "Developers"
+    }
+  }
+}

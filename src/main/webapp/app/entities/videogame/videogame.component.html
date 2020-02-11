@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="vgAbbeyApp.videogame.home.title">Videogames</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-videogame" [routerLink]="['/videogame/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="vgAbbeyApp.videogame.home.createLabel">
+            Create a new Videogame
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="videogames?.length === 0">
+        <span jhiTranslate="vgAbbeyApp.videogame.home.notFound">No videogames found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="videogames?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span jhiTranslate="vgAbbeyApp.videogame.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="description"><span jhiTranslate="vgAbbeyApp.videogame.description">Description</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imageUrl"><span jhiTranslate="vgAbbeyApp.videogame.imageUrl">Image Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="repositoryUrl"><span jhiTranslate="vgAbbeyApp.videogame.repositoryUrl">Repository Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="deployUrl"><span jhiTranslate="vgAbbeyApp.videogame.deployUrl">Deploy Url</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="releaseDate"><span jhiTranslate="vgAbbeyApp.videogame.releaseDate">Release Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isSearchingCollab"><span jhiTranslate="vgAbbeyApp.videogame.isSearchingCollab">Is Searching Collab</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let videogame of videogames ;trackBy: trackId">
+                    <td><a [routerLink]="['/videogame', videogame.id, 'view']">{{ videogame.id }}</a></td>
+                    <td>{{ videogame.title }}</td>
+                    <td>{{ videogame.description }}</td>
+                    <td>{{ videogame.imageUrl }}</td>
+                    <td>{{ videogame.repositoryUrl }}</td>
+                    <td>{{ videogame.deployUrl }}</td>
+                    <td>{{ videogame.releaseDate | date:'medium' }}</td>
+                    <td>{{ videogame.isSearchingCollab }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/videogame', videogame.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/videogame', videogame.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(videogame)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

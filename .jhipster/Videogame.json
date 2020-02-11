@@ -1,0 +1,80 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "developers",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "videogame"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "256"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "5",
+            "fieldValidateRulesMaxlength": "256"
+        },
+        {
+            "fieldName": "imageUrl",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "256"
+        },
+        {
+            "fieldName": "repositoryUrl",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "256"
+        },
+        {
+            "fieldName": "deployUrl",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "256"
+        },
+        {
+            "fieldName": "releaseDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "isSearchingCollab",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20200211225958",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "videogame",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "infinite-scroll"
+}

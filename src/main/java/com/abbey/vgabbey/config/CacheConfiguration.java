@@ -44,6 +44,8 @@ public class CacheConfiguration {
             createCache(cm, com.abbey.vgabbey.domain.User.class.getName() + ".authorities");
             createCache(cm, com.abbey.vgabbey.domain.PersistentToken.class.getName());
             createCache(cm, com.abbey.vgabbey.domain.User.class.getName() + ".persistentTokens");
+            createCache(cm, com.abbey.vgabbey.domain.Videogame.class.getName());
+            createCache(cm, com.abbey.vgabbey.domain.Videogame.class.getName() + ".developers");
             // jhipster-needle-ehcache-add-entry
         };
     }

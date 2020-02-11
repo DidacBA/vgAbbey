@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="videogame">
+            <h2><span jhiTranslate="vgAbbeyApp.videogame.detail.title">Videogame</span> {{ videogame.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="vgAbbeyApp.videogame.title">Title</span></dt>
+                <dd>
+                    <span>{{ videogame.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="vgAbbeyApp.videogame.description">Description</span></dt>
+                <dd>
+                    <span>{{ videogame.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="vgAbbeyApp.videogame.imageUrl">Image Url</span></dt>
+                <dd>
+                    <span>{{ videogame.imageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="vgAbbeyApp.videogame.repositoryUrl">Repository Url</span></dt>
+                <dd>
+                    <span>{{ videogame.repositoryUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="vgAbbeyApp.videogame.deployUrl">Deploy Url</span></dt>
+                <dd>
+                    <span>{{ videogame.deployUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="vgAbbeyApp.videogame.releaseDate">Release Date</span></dt>
+                <dd>
+                    <span>{{ videogame.releaseDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="vgAbbeyApp.videogame.isSearchingCollab">Is Searching Collab</span></dt>
+                <dd>
+                    <span>{{ videogame.isSearchingCollab }}</span>
+                </dd>
+                <dt><span jhiTranslate="vgAbbeyApp.videogame.developers">Developers</span></dt>
+                <dd>
+                    <span *ngFor="let developers of videogame.developers; let last = last">
+                        {{ developers.login }}{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/videogame', videogame.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

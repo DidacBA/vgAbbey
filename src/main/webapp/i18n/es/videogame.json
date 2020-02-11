@@ -1,0 +1,29 @@
+{
+  "vgAbbeyApp": {
+    "videogame": {
+      "home": {
+        "title": "Videogames",
+        "createLabel": "Crear nuevo Videogame",
+        "createOrEditLabel": "Crear o editar Videogame",
+        "notFound": "Ningún Videogames encontrado"
+      },
+      "created": "Un nuevo Videogame ha sido creado con el identificador {{ param }}",
+      "updated": "Un Videogame ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Videogame ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Videogame {{ id }}?"
+      },
+      "detail": {
+        "title": "Videogame"
+      },
+      "title": "Title",
+      "description": "Description",
+      "imageUrl": "Image Url",
+      "repositoryUrl": "Repository Url",
+      "deployUrl": "Deploy Url",
+      "releaseDate": "Release Date",
+      "isSearchingCollab": "Is Searching Collab",
+      "developers": "Developers"
+    }
+  }
+}
